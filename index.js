@@ -41,7 +41,9 @@ app.use(
     })
   );
 
- 
+
+const usersRouter = require('./routes/users')
+app.use('/api/v1/users', usersRouter)
 
 app.listen(PORT, () => {
     console.log('Listening on', PORT);
