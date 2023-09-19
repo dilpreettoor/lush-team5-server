@@ -26,25 +26,25 @@ app.use(express.json());
 
 // Enable CORS (with additional config options required for cookies)
 app.use(
-    cors({
-      origin: true,
-      credentials: true
-    })
-  );
+  cors({
+    origin: true,
+    credentials: true
+  })
+);
 
-  // Include express-session middleware (with additional config options required for Passport session)
+// Include express-session middleware (with additional config options required for Passport session)
 app.use(
-    expressSession({
-      secret: process.env.SESSION_SECRET,
-      resave: false,
-      saveUninitialized: true
-    })
-  );
+  expressSession({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 
 const usersRouter = require('./routes/users')
 app.use('/api/v1/users', usersRouter)
 
 app.listen(PORT, () => {
-    console.log('Listening on', PORT);
+  console.log('Listening on', PORT);
 });
