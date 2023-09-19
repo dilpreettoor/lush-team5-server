@@ -43,7 +43,7 @@ app.use(
 const usersRouter = require('./routes/users');
 app.use('/api/v1/users', usersRouter);
 
-
+//Armon added lines 46-57 on 09-19-2023
 const storeRoutes = require('./routes/stores');
 
 // Middleware to connect to json and static images
@@ -55,7 +55,6 @@ app.use('/stores', storeRoutes);
 app.get('/', (req, res) => {
     res.send('<h1>Welcome to the IP Team 5 Server</h1>');
 });
-
 
 app.listen(PORT, () => {
   console.log('Listening on', PORT);
