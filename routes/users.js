@@ -38,7 +38,7 @@ function validateUser(hash, data, res) {
         console.log(response) // return true
         knex("users")
         .insert({
-            user_id:uuidv4(),
+            user_id: uuidv4(),
             email_address:email_address,
             password:hash,
             phone_number:phone_number,
