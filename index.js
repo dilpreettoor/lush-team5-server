@@ -1,7 +1,6 @@
 const express = require('express');
 const knex = require('knex');
 
-
 // Middleware for creating a session id on server and a session cookie on client
 const expressSession = require('express-session');
 
@@ -41,9 +40,22 @@ app.use(
   })
 );
 
+const usersRouter = require('./routes/users');
+app.use('/api/v1/users', usersRouter);
 
-const usersRouter = require('./routes/users')
-app.use('/api/v1/users', usersRouter)
+
+const storeRoutes = require('./routes/stores');
+
+// Middleware to connect to json and static images
+app.use(express.json());
+app.use(express.static('public'));
+
+// Including routes for stores to GET 
+app.use('/stores', storeRoutes);
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the IP Team 5 Server</h1>');
+});
+
 
 app.listen(PORT, () => {
   console.log('Listening on', PORT);
