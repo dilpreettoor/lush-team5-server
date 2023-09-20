@@ -1,5 +1,5 @@
 const express = require('express');
-const knex = require('knex');
+// const knex = require('knex');
 
 
 // Middleware for creating a session id on server and a session cookie on client
@@ -33,13 +33,13 @@ app.use(
   );
 
   // Include express-session middleware (with additional config options required for Passport session)
-app.use(
-    expressSession({
-      secret: process.env.SESSION_SECRET,
-      resave: false,
-      saveUninitialized: true
-    })
-  );
+// app.use(
+//     expressSession({
+//       secret: process.env.SESSION_SECRET,
+//       resave: false,
+//       saveUninitialized: true
+//     })
+//   );
 
 
 const usersRouter = require('./routes/users')
