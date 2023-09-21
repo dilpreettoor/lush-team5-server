@@ -1,6 +1,6 @@
 const express = require('express');
 const storeRoutes = require('./routes/stores');
-app.use(express.static('public'));
+
 // const knex = require('knex');
 
 
@@ -14,6 +14,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 
 const app = express();
+app.use(express.static('public'));
 const cors = require('cors');
 require('dotenv').config();
 
