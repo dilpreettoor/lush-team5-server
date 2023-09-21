@@ -1,4 +1,6 @@
 const express = require('express');
+const storeRoutes = require('./routes/stores');
+
 // const knex = require('knex');
 
 
@@ -12,6 +14,7 @@ const helmet = require('helmet');
 const passport = require('passport');
 
 const app = express();
+app.use(express.static('public'));
 const cors = require('cors');
 require('dotenv').config();
 
@@ -43,7 +46,15 @@ app.use(
 
 
 const usersRouter = require('./routes/users')
+
 app.use('/api/v1/users', usersRouter)
+
+// Including routes for stores to GET 
+app.use('/stores', storeRoutes);
+
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to the IP Team 5 Server</h1>');
+});
 
 app.listen(PORT, () => {
     console.log('Listening on', PORT);
