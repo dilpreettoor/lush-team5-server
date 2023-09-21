@@ -1,5 +1,6 @@
 const express = require('express');
 const storeRoutes = require('./routes/stores');
+app.use(express.static('public'));
 // const knex = require('knex');
 
 
